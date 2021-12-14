@@ -17,10 +17,9 @@ const Auth = () => {
     if (username.length === 1 || secret.length === 1) return;
 
     axios
-      .put(
-        "https://api.chatengine.io/users/",
-        { username, secret },
-        { headers: { "Private-Key": "c2f82e63-9978-4c5c-9c17-8b0dec845dc6" } }
+      .get(
+        "https://api.chatengine.io/chats/",
+        { headers: { "Project-ID": "889e8a88-ce27-4629-8051-3f85c29181e1", "User-Name": username , "User-Secret": secret } }
       )
 
       .then((r) => {
@@ -32,11 +31,11 @@ const Auth = () => {
     <div className="background">
       <div className="auth-container">
         <form className="auth-form" onSubmit={(e) => onSubmit(e)}>
-          <div className="auth-title">NextJS Chat</div>
+          <div className="auth-title">STEM Club Chat</div>
 
           <div className="input-container">
             <input
-              placeholder="Email"
+              placeholder="Email/Username"
               className="text-input"
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -52,7 +51,7 @@ const Auth = () => {
           </div>
 
           <button type="submit" className="submit-button">
-            Login / Sign Up
+            Login
           </button>
         </form>
       </div>

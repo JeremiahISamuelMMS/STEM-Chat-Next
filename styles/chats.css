@@ -1,3 +1,8 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
 .shadow {
   box-shadow: 0 2px 15px rgb(0 0 0 / 68%);
 }
@@ -10,6 +15,9 @@
 .ce-chats-container {
   background-color: #4a5162 !important;
   border-radius: 0px !important;
+  height: auto;
+  overflow: auto;
+  position: relative; 
 }
 
 .ce-chat-form-container {
@@ -38,7 +46,7 @@
 }
 
 .ce-chat-unread-dot {
-  background-color: white !important;
+  background-color: #0088ff !important;
 }
 
 /* Chat Feed */
@@ -65,7 +73,13 @@
 }
 
 .ce-my-message-sinding-bubble {
-  background-color: #938ffe !important;
+
+  background: #5c5cff;
+  background: -moz-linear-gradient(135deg, rgba(0,0,255,1) 0%, #5c5cff 100%);
+  background: -webkit-linear-gradient(135deg, rgba(0,0,255,1) 0%, #5c5cff 100%);
+  background: linear-gradient(135deg, rgba(0,0,255,1) 0%, #5c5cff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0000ff",endColorstr="#5c5cff",GradientType=1);
+
 }
 
 .ce-my-message-timestamp {
@@ -121,9 +135,20 @@
   color: hsla(0, 0%, 100%, 0.568) !important;
 }
 
-.ce-their-message-bubble {
-  background-color: #535a6d !important;
-  color: rgba(255, 255, 255, 0.705) !important;
+.ce-my-message-bubble{
+  background: rgb(0,0,255);
+  background: -moz-linear-gradient(135deg, rgba(0,0,255,1) 0%, rgba(0,136,255,1) 33%, rgba(0,221,255,1) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(0,0,255,1) 0%, rgba(0,136,255,1) 33%, rgba(0,221,255,1) 100%);
+  background: linear-gradient(135deg, rgba(0,0,255,1) 0%, rgba(0,136,255,1) 33%, rgba(0,221,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0000ff",endColorstr="#00ddff",GradientType=1);
+}
+
+.ce-their-message-bubble{
+  background: rgb(172,172,172);
+  background: -moz-linear-gradient(245deg, rgba(172,172,172,1) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(245deg, rgba(172,172,172,1) 0%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(245deg, rgba(172,172,172,1) 0%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#acacac",endColorstr="#ffffff",GradientType=1);
 }
 
 /* Chat Settings */

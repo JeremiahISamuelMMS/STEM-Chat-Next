@@ -11,7 +11,28 @@ const ChatEngine = dynamic(() =>
 const MessageFormSocial = dynamic(() =>
   import("react-chat-engine").then((module) => module.MessageFormSocial)
 );
+ const showNotification = (message) => {
+    let granted = false;
+		if (Notification.permission === 'granted') {
+			granted = true;
+		} else if (Notification.permission !== 'denied') {
+			let permission = Notification.requestPermission();
+			granted = permission === 'granted' ? true : false;
+		}
+    if (granted) {
+        // create a new notification
+        const notification = new Notification('New Message', {
+          body: `Click To View More or Reply`,
+          icon: 'https://stem-club-chat.netlify.app/favicon.ico'
+        });
 
+        // navigate to a URL when clicked
+        notification.addEventListener('click', () => {
+
+          window.open('https://stem-club-chat.netlify.app/', '_blank');
+        });
+      }
+}
 export default function Home() {
   const { username, secret } = useContext(Context);
   const [showChat, setShowChat] = useState(false);
@@ -32,16 +53,16 @@ export default function Home() {
   if (!showChat) return <div />;
 
   return (
-    <div className="background">
       <div className="shadow">
         <ChatEngine
-          height="calc(100vh - 212px)"
-          projectID="b60a6d8b-d377-477e-af88-e47de35b3e89"
+          height="100vh"
+          projectID="889e8a88-ce27-4629-8051-3f85c29181e1"
           userName={username}
           userSecret={secret}
+   onNewMessage={(data, message) => showNotification(JSON.stringify(message)).then(console.log).then(new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play())
+      }
           renderNewMessageForm={() => <MessageFormSocial />}
         />
       </div>
-    </div>
   );
 }
