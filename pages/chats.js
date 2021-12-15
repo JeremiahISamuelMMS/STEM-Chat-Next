@@ -29,7 +29,7 @@ const MessageFormSocial = dynamic(() =>
         // navigate to a URL when clicked
         notification.addEventListener('click', () => {
 
-          window.open('https://stem-club-chat.netlify.app/', '_blank');
+          window.open('https://stem-club-chat.vercel.app/', '_self');
         });
       }
 }
